@@ -1,4 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://BadGuy/Follow_BG/Follow_BG.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -102,3 +105,9 @@ shape = SubResource( 7 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CenterContainer/OuterWalls"]
 position = Vector2( 1032.5, 299 )
 shape = SubResource( 8 )
+
+[node name="Follow_BG" parent="." instance=ExtResource( 2 )]
+position = Vector2( 184, 112 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 912, 80 )
