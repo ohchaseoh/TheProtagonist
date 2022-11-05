@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://BadGuy/BadGuy.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23, 24.5 )
@@ -7,7 +10,7 @@ extents = Vector2( 23, 24.5 )
 
 [node name="Level 1" type="Node2D"]
 
-[node name="Wall1" type="Area2D" parent="."]
+[node name="Wall1" type="StaticBody2D" parent="."]
 position = Vector2( 640, 398 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
@@ -19,7 +22,7 @@ position = Vector2( 1, -7 )
 scale = Vector2( 26.5, 206.219 )
 mesh = SubResource( 2 )
 
-[node name="Wall2" type="Area2D" parent="."]
+[node name="Wall2" type="StaticBody2D" parent="."]
 position = Vector2( 641, 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
@@ -29,7 +32,7 @@ shape = SubResource( 1 )
 scale = Vector2( 26.5, 25.2812 )
 mesh = SubResource( 2 )
 
-[node name="Wall3" type="Area2D" parent="."]
+[node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2( 750, 294 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
@@ -43,3 +46,8 @@ mesh = SubResource( 2 )
 
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 255, 542 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 784, 104 )
+
+[node name="BadGuy" parent="." instance=ExtResource( 2 )]

@@ -6,6 +6,9 @@ var speed = 400.0
 onready var target = position
 
 
+signal enemy_hit
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -14,6 +17,16 @@ func _ready():
 
 
 func _physics_process(delta):
+	#5. if damage = 0
+	#6. play dead 
+	var collision
 	if shoot:
-		move_and_collide(target * speed * delta)
+		collision = move_and_collide(target * speed * delta)
 #		apply_impulse(target, Vector2(0, speed))
+	if (collision):
+		#print(collision.collider.name)
+		var collisionName = collision.collider.name
+		if(collisionName == "BadGuy"):
+			#print("Success!")
+			emit_signal("enemy_hit")
+			self.queue_free()
