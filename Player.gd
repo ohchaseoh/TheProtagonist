@@ -49,7 +49,7 @@ func _process(delta):
 	if Input.is_action_pressed("shoot") and can_fire:
 		var b = bullet.instance()
 		$CollisionShape2D.add_child(b)
-		b.connect("enemy_hit", get_parent().get_node("BadGuy"), "_on_Bullet_enemy_hit")
+		b.connect("enemy_hit", get_parent().get_node("Follow_BG"), "_on_Bullet_enemy_hit")
 		
 		b.target = position.direction_to(target)
 		b.shoot = true
@@ -63,7 +63,7 @@ func _process(delta):
 
 
 func _on_Area2D_body_entered(body):
-	if(body.name == "BadGuy"):
+	if(body.name == "Follow_BG"):
 		emit_signal("player_death")
 		self.queue_free()
 	else:

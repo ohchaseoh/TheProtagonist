@@ -24,7 +24,7 @@ func _physics_process(delta):
 	if (collision):
 		#print(collision.collider.name)
 		var collisionName = collision.collider.name
-		if(collisionName == "BadGuy"):
+		if(collisionName == "Follow_BG"):
 			#print("Success!")
 			emit_signal("enemy_hit")
 			self.queue_free()
