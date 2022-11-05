@@ -3,6 +3,7 @@ extends KinematicBody2D
 var speed = 200.0
 var screen_size = Vector2.ZERO
 var bullet = load("res://Bullet.tscn")
+var laser = load("res://Laser.tscn")
 var can_fire = true
 
 #don't know why it is like this
@@ -18,7 +19,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("shoot"):
 		target = get_global_mouse_position()
-
+	
 
 func _process(delta):
 	#basic movement commands
@@ -41,7 +42,18 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_size.y)
 	
 	
-	#gets the direction to the mouse click
+	
+	if Input.is_action_pressed("laser"):
+		var l = laser.instance()
+		$CollisionShape2D.add_child(l)
+		#l.rotation = position.angle_to_point(target) + 2.70
+		l.is_casting = true
+		yield(get_tree().create_timer(0.25), "timeout")
+		l.disappear()
+		l.is_casting = false
+		
+		
+		#gets the direction to the mouse click
 	#position.direction_to(target)
 	if Input.is_action_pressed("shoot") and can_fire:
 		var b = bullet.instance()

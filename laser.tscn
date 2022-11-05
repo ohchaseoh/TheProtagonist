@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://laser.gd" type="Script" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 4
+glow_enabled = true
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="RayCast2D" type="RayCast2D"]
+position = Vector2( 0, 1 )
+cast_to = Vector2( 10000, 0 )
+script = ExtResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 113, 13 )
+rotation = -0.00174533
+points = PoolVector2Array( -113, -13, 8, -13 )
+default_color = Color( 1, 0.0585938, 0.13101, 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
