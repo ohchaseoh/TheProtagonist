@@ -59,10 +59,13 @@ func _process(delta):
 	if Input.is_action_pressed("laser"):
 		var l = laser.instance()
 		$CollisionShape2D.add_child(l)
+		l.player_position = self.get_global_position()
+		
+		#l.cast_to() = target * 100.0
 		#l.rotation = position.angle_to_point(target) + 2.70
 		l.is_casting = true
 		yield(get_tree().create_timer(0.25), "timeout")
-		l.disappear()
+		l.queue_free()
 		l.is_casting = false
 		
 		
@@ -76,6 +79,7 @@ func _process(delta):
 		$CollisionShape2D.add_child(b)
 		
 		attacking = true
+		b.start = self.get_global_position()
 		
 		b.target = position.direction_to(target)
 		b.rotation = position.angle_to_point(target)

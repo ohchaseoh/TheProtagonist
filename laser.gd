@@ -4,7 +4,7 @@ extends RayCast2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+onready var player_position = position
 var is_casting := false setget set_is_casting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +19,8 @@ func _ready() -> void:
 #	
 
 func _physics_process(delta: float) -> void:
+	cast_to = get_global_mouse_position() - player_position
+	
 	var cast_point := cast_to
 	force_raycast_update()
 	if is_colliding():
