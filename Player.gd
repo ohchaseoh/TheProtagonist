@@ -48,6 +48,9 @@ func _process(delta):
 		$CollisionShape2D.add_child(b)
 		
 		b.target = position.direction_to(target)
+		
+		b.rotation = position.angle_to_point(target)
+		
 		b.shoot = true
 		can_fire = false
 		yield(get_tree().create_timer(0.25), "timeout")
