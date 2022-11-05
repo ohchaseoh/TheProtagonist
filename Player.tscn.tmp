@@ -20,7 +20,7 @@ position = Vector2( 7, 10.4706 )
 scale = Vector2( 1.75, 2.05882 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 3
+frame = 5
 playing = true
 
 [node name="Timer" type="Timer" parent="."]

@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" load_steps=32 format=2]
+
+[ext_resource path="res://Assets/Sprites/PC/Idle/Idle5.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/PC/Idle/Idle4.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/PC/Idle/Idle6.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/PC/Idle/Idle3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/PC/Idle/Idle2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/PC/Idle/Idle1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/PC/AttackCharge/StaffWood/ChargeWood5.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/PC/Run/Run1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/PC/Run/Run4.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/PC/Run/Run5.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/PC/AttackCharge/StaffWood/ChargeWood1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/PC/Run/Run6.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/PC/AttackCharge/StaffWood/ChargeWood6.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/PC/AttackCharge/StaffWood/ChargeWood3.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/PC/AttackCharge/StaffWood/ChargeWood4.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/PC/Run/Run3.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/PC/Dead/Dead.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/PC/Run/Run2.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/PC/AttackCharge/StaffWood/ChargeWood2.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/PC/Attack/StaffWood/AttackWood1.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/PC/Attack/StaffWood/AttackWood2.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/PC/Attack/StaffWood/AttackWood3.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/PC/Attack/StaffWood/AttackWood4.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprites/PC/Attack/StaffWood/AttackWood5.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprites/PC/Dying/Dying1.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/PC/Dying/Dying2.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/PC/Dying/Dying3.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/PC/Dying/Dying5.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Sprites/PC/Dying/Dying6.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Sprites/PC/Attack/StaffWood/AttackWood6.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Sprites/PC/Dying/Dying4.png" type="Texture" id=31]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "cast",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "death_f",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "run_cast",
+"speed": 5.0
+} ]
