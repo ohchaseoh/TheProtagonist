@@ -29,7 +29,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "run_anim"
+animation = "idle_anim"
 
 [node name="Area2D" type="Area2D" parent="."]
 

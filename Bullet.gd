@@ -16,9 +16,7 @@ func _ready():
 
 
 
-func _physics_process(delta):
-	#5. if damage = 0
-	#6. play dead 
+func _physics_process(delta): 
 	var collision
 	if shoot:
 		collision = move_and_collide(target * speed * delta)

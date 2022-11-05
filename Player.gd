@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+signal player_death
+
+
 var speed = 200.0
 var screen_size = Vector2.ZERO
 var bullet = load("res://Bullet.tscn")
@@ -55,3 +58,13 @@ func _process(delta):
 		can_fire = true
 	
 	
+
+
+
+
+func _on_Area2D_body_entered(body):
+	if(body.name == "BadGuy"):
+		emit_signal("player_death")
+		self.queue_free()
+	else:
+		pass

@@ -14,12 +14,14 @@ func _ready():
 
 func _physics_process(delta):
 	anim_sprite.play("run_anim")
-	var Player = get_parent().get_node("Player")
 	
-	position += (Player.position - position)/50
-	look_at(Player.position)
-	
-	move_and_collide(motion)
+	if(get_parent().get_node("Player")):
+		var Player = get_parent().get_node("Player")
+		position += (Player.position - position)/50
+		look_at(Player.position)
+		move_and_collide(motion)
+	else:
+		print("You Lose!")
 
 
 func _on_Bullet_enemy_hit():
@@ -30,6 +32,9 @@ func _on_Bullet_enemy_hit():
 	else:
 		health = health - 1
 		print("Enemy hit")
+
+
+
 
 
 
