@@ -1,18 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://knight_f_idle_anim_f1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/PC/PC_Spriteframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.5, 10 )
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+extents = Vector2( 11.5, 16.5 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 4
@@ -20,11 +12,18 @@ collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.5, 4 )
+position = Vector2( 7.5, 10.5 )
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 2 )
+[node name="PC_Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 7, 10.4706 )
+scale = Vector2( 1.75, 2.05882 )
+frames = ExtResource( 1 )
+animation = "cast"
+frame = 5
+playing = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[connection signal="animation_finished" from="PC_Sprite" to="." method="_on_PC_Sprite_animation_finished"]
