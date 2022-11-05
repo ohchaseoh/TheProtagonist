@@ -24,17 +24,12 @@ func _physics_process(delta):
 		print("You Lose!")
 
 
-func _on_Bullet_enemy_hit():
-	#print("Success!")
-	if(health == 1):
-		self.queue_free()
+func hit(damage):
+	if(health < damage):
+		health = 0
 		print("Enemy dead")
+		self.queue_free()
 	else:
-		health = health - 1
+		health = health - damage
 		print("Enemy hit")
-
-
-
-
-
-
+		

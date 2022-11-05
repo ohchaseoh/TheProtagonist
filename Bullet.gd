@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
 
+onready var enemy = get_node("res://BadGuy/Follow_BG/Follow_BG.tscn")
 var shoot = false
 var speed = 400.0
 onready var target = position
+var damage = 1
 
 
-signal enemy_hit
+signal enemy_hit(damage,enemy)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,8 +25,7 @@ func _physics_process(delta):
 #		apply_impulse(target, Vector2(0, speed))
 	if (collision):
 		#print(collision.collider.name)
-		var collisionName = collision.collider.name
-		if(collisionName == "Follow_BG"):
-			#print("Success!")
-			emit_signal("enemy_hit")
-			self.queue_free()
+		#var collisionType = collision.collider.get_class()
+		#if(collisionType == "KinematicBody2D"):
+		collision.get_collider().hit(damage)
+		self.queue_free()
