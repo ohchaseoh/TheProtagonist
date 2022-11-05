@@ -7,6 +7,8 @@ var laser = load("res://Laser.tscn")
 var can_fire = true
 var attacking = false
 var dead = false
+var alwaysOn = false
+var canToggle = false
 
 #don't know why it is like this
 onready var target = position
@@ -64,15 +66,15 @@ func _process(delta):
 		#l.cast_to() = target * 100.0
 		#l.rotation = position.angle_to_point(target) + 2.70
 		l.is_casting = true
-		yield(get_tree().create_timer(0.25), "timeout")
-		l.queue_free()
-		l.is_casting = false
-		
-	if Input.is_action_pressed("alwaysOn"):
-		var l1 = laser.instance()
-		$CollisionShape2D.add_child(l1)
-		l1.player_position = self.get_global_position()
-		l1.is_casting = true
+		if alwaysOn == false && canToggle == false:
+			yield(get_tree().create_timer(0.25), "timeout")
+			l.queue_free()
+			l.is_casting = false
+		if canToggle == true:
+			yield(get_tree().create_timer(1), "timeout")
+			l.queue_free()
+			l.is_casting = false
+	
 		
 	
 	
