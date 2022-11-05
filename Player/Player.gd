@@ -76,3 +76,11 @@ func _process(delta):
 func _on_PC_Sprite_animation_finished():
 	attacking = false
 
+
+
+func _on_Area2D_body_entered(body):
+	if(body.name == "Follow_BG"):
+		emit_signal("player_death")
+		self.queue_free()
+	else:
+		pass
