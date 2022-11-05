@@ -68,7 +68,18 @@ func _process(delta):
 		l.queue_free()
 		l.is_casting = false
 		
+	if Input.is_action_pressed("alwaysOn"):
+		var l1 = laser.instance()
+		$CollisionShape2D.add_child(l1)
+		l1.player_position = self.get_global_position()
+		l1.is_casting = true
 		
+	
+	
+	
+
+
+
 		#gets the direction to the mouse click
 
 	#gets the direction to the mouse click
