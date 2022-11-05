@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/HUD/ExperienceBar/fill.png" type="Texture" id=1]
+[ext_resource path="res://Assets/HUD/ExperienceBar/bg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/HUD/TextureProgress.gd" type="Script" id=3]
+
+[node name="ExperienceBar" type="TextureProgress"]
+margin_right = 396.0
+margin_bottom = 53.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )
+tint_under = Color( 0.145098, 0.145098, 0.145098, 1 )
+tint_progress = Color( 0.109804, 0.913725, 0.498039, 1 )
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]

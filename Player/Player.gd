@@ -3,6 +3,12 @@ extends KinematicBody2D
 var speed = 200.0
 var screen_size = Vector2.ZERO
 var bullet = load("res://Bullet.tscn")
+
+var level = 1
+export (int) var experience
+export (int) var experience_total
+export (int) var experience_required
+
 var can_fire = true
 var attacking = false
 var dead = false
@@ -69,3 +75,4 @@ func _process(delta):
 
 func _on_PC_Sprite_animation_finished():
 	attacking = false
+
