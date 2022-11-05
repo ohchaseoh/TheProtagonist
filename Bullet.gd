@@ -16,4 +16,6 @@ func _ready():
 func _physics_process(delta):
 	if shoot:
 		move_and_collide(target * speed * delta)
+		
+		
 #		apply_impulse(target, Vector2(0, speed))
