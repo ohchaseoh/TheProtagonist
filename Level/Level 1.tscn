@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23, 24.5 )
+
+[sub_resource type="CubeMesh" id=2]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Wall1" type="Area2D" parent="."]
+position = Vector2( 640, 398 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall1/CollisionShape2D"]
+position = Vector2( 1, -7 )
+scale = Vector2( 26.5, 206.219 )
+mesh = SubResource( 2 )
+
+[node name="Wall2" type="Area2D" parent="."]
+position = Vector2( 641, 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall2/CollisionShape2D"]
+scale = Vector2( 26.5, 25.2812 )
+mesh = SubResource( 2 )
+
+[node name="Wall3" type="Area2D" parent="."]
+position = Vector2( 750, 294 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall3/CollisionShape2D"]
+position = Vector2( 30, 0 )
+scale = Vector2( 113, 25.2813 )
+mesh = SubResource( 2 )
+
+[node name="Spawn" type="Position2D" parent="."]
+position = Vector2( 255, 542 )
