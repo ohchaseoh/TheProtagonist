@@ -19,9 +19,11 @@ shape = SubResource( 1 )
 position = Vector2( 7, 10.4706 )
 scale = Vector2( 1.75, 2.05882 )
 frames = ExtResource( 1 )
-animation = "idle"
-frame = 3
+animation = "cast"
+frame = 5
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[connection signal="animation_finished" from="PC_Sprite" to="." method="_on_PC_Sprite_animation_finished"]

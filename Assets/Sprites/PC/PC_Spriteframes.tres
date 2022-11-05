@@ -35,17 +35,17 @@
 [resource]
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 13 ) ],
-"loop": true,
+"loop": false,
 "name": "cast",
-"speed": 8.0
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 29 ) ],
-"loop": true,
+"loop": false,
 "name": "death",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
-"loop": true,
+"loop": false,
 "name": "death_f",
 "speed": 5.0
 }, {
@@ -60,7 +60,7 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 30 ) ],
-"loop": true,
+"loop": false,
 "name": "run_cast",
 "speed": 5.0
 } ]
