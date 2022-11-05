@@ -19,8 +19,12 @@ func _ready() -> void:
 #	
 
 func _physics_process(delta: float) -> void:
-	cast_to = get_global_mouse_position() - player_position
 	
+	
+	
+	
+	
+	cast_to = self.get_local_mouse_position() * 50
 	var cast_point := cast_to
 	force_raycast_update()
 	if is_colliding():
