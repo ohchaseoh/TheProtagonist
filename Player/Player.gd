@@ -9,10 +9,6 @@ var level = 1
 export (int) var lives = 3
 var dead = false
 
-export (int) var experience
-export (int) var experience_total
-export (int) var experience_required
-
 var can_fire = true
 var attacking = false
 
@@ -64,8 +60,11 @@ func _process(delta):
 		$PC_Sprite.play("idle")
 	elif attacking:
 		$PC_Sprite.play("cast")
+	elif dead:
+		$PC_Sprite.play("death")
 	else:
 		$PC_Sprite.play("run")
+		
 	move_and_collide(direction * speed * delta)
 	#position += direction * speed * delta
 	#position.x = clamp(position.x, 0, screen_size.x)
@@ -150,20 +149,16 @@ func _on_Area2D_body_entered(body):
 		body.rescue()
 	else:
 		pass
+		
 func _on_Hostage_hostage_killed():
 	lives = 0
 	emit_signal("hostage_killed")
+	
 func lose_life():
 	emit_signal("life_lost")
 	lives = lives - 1
-	if lives == 2:
-		pass
-	elif lives == 1:
-		pass
-	elif lives == 0:
+	if lives == 0:
 		dead = true
-		$PC_Sprite.play("death")
-		#yield($PC_Sprite.animation, "finished")
 		$PC_Sprite.play("death_f")
 		#self.queue_free()
 
