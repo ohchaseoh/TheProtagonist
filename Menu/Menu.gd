@@ -12,16 +12,17 @@ func _ready():
 	
 	$TransitionScreen.visible = false
 	
-	_click.volume_db = 2.0
+	MusicController.play_music()
 	
-	SCREEN_SIZE.x = get_viewport().get_visible_rect().size.x # Get Width
-	SCREEN_SIZE.y = get_viewport().get_visible_rect().size.y # Get Height
+	_click.volume_db = 2.0
 
 func _on_Start_mouse_entered():
 	_hover.play()
 
 func _on_Start_pressed():
 	_click.play()
+	MusicController.play_va()
+	
 	$TransitionScreen.visible = true
 	$TransitionScreen.transition()
 
