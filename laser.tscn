@@ -81,7 +81,7 @@ cast_to = Vector2( 10000, 0 )
 script = SubResource( 3 )
 
 [node name="Line2D" type="Line2D" parent="."]
-position = Vector2( 113, 13 )
+position = Vector2( 113, 0 )
 points = PoolVector2Array( -113, -13, 8, -13 )
 default_color = Color( 1, 0.0585938, 0.13101, 1 )
 

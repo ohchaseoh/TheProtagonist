@@ -3,21 +3,13 @@ extends KinematicBody2D
 var speed = 200.0
 var screen_size = Vector2.ZERO
 var bullet = load("res://Bullet.tscn")
-var laser = load("res://laser.tscn")
-
-var level = 1
-export (int) var experience
-export (int) var experience_total
-export (int) var experience_required
-
+var laser = load("res://Laser.tscn")
 var can_fire = true
 var attacking = false
 var dead = false
-
 var alwaysOn = false
 var canToggle = false
 var laserOn = false
-
 #don't know why it is like this
 onready var target = position
 
@@ -29,6 +21,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("shoot"):
 		target = get_global_mouse_position()
+
 
 func _process(delta):
 	#basic movement commands
@@ -62,14 +55,16 @@ func _process(delta):
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
+
+	
+	
 	if Input.is_action_just_pressed("laser"):
 		if !laserOn:
 			var l = laser.instance()
-		
 			$CollisionShape2D.add_child(l)
 			
 			l.player_position = self.get_global_position()
-			#l.alwaysOn = alwaysOn
+			
 			#l.cast_to() = target * 100.0
 			#l.rotation = position.angle_to_point(target) + 2.70
 			l.is_casting = true
@@ -84,24 +79,32 @@ func _process(delta):
 #				yield(get_tree().create_timer(1), "timeout")
 #				l.queue_free()
 #				l.is_casting = false
-			if !alwaysOn:
-				laserOn = true
 
-			
+
+			laserOn = true
 		else:
 			laserOn = false
-			#print("test")
+			print("test")
+			
+	
+		
 	
 	
 	
-	
+
+
+
+		#gets the direction to the mouse click
+
 	#gets the direction to the mouse click
+
 	#position.direction_to(target)
 	if Input.is_action_pressed("shoot") and can_fire:
 		var b = bullet.instance()
 		$CollisionShape2D.add_child(b)
 		
 		attacking = true
+		b.start = self.get_global_position()
 		
 		b.target = position.direction_to(target)
 		b.rotation = position.angle_to_point(target)
@@ -113,12 +116,3 @@ func _process(delta):
 
 func _on_PC_Sprite_animation_finished():
 	attacking = false
-
-
-
-func _on_Area2D_body_entered(body):
-	if(body.name == "Follow_BG"):
-		emit_signal("player_death")
-		self.queue_free()
-	else:
-		pass
