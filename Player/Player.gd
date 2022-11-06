@@ -5,7 +5,7 @@ var screen_size = Vector2.ZERO
 var bullet = load("res://Bullet.tscn")
 var laser = load("res://laser.tscn")
 
-var level = 1
+var level = 4
 export (int) var experience
 export (int) var experience_total
 export (int) var experience_required
@@ -14,7 +14,7 @@ var can_fire = true
 var attacking = false
 var dead = false
 
-var alwaysOn = true
+var alwaysOn = false
 var first_time = true
 var canToggle = false
 var laserOn = false
@@ -65,28 +65,35 @@ func _process(delta):
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
+	#Powers start here
+	if level == 4:
+		alwaysOn = true
+	
 	if alwaysOn and first_time:
 			var l = laser.instance()
 			$CollisionShape2D.add_child(l)
-			l.alwaysOn = alwaysOn
+			l.alwaysOn = true
 			
 			l.player_position = self.get_global_position()
 			
 			l.is_casting = true
 			first_time = false
 	
-	elif(!alwaysOn):
-		if Input.is_action_just_pressed("laser"):
+	elif !alwaysOn and level == 3:
+		if Input.is_action_just_pressed("shoot"):
+			
+			yield(get_tree().create_timer(0.1), "timeout")
 		
 			if !laserOn:
 				var l = laser.instance()
-				$CollisionShape2D.add_child(l)
+				self.add_child(l)
 				
 				l.player_position = self.get_global_position()
 				#l.alwaysOn = alwaysOn
 				#l.cast_to() = target * 100.0
 				#l.rotation = position.angle_to_point(target) + 2.70
 				l.is_casting = true
+				l.isOn = true
 				
 				
 				
@@ -111,19 +118,31 @@ func _process(delta):
 	
 	#gets the direction to the mouse click
 	#position.direction_to(target)
-	if Input.is_action_pressed("shoot") and can_fire:
-		var b = bullet.instance()
-		$CollisionShape2D.add_child(b)
-		
-		attacking = true
-		
-		b.target = position.direction_to(target)
-		b.rotation = position.angle_to_point(target)
-		
-		b.shoot = true
-		can_fire = false
-		yield(get_tree().create_timer(0.25), "timeout")
-		can_fire = true
+	if Input.is_action_just_pressed("shoot") and can_fire:
+		if level <= 2:
+			var b = bullet.instance()
+			$CollisionShape2D.add_child(b)
+			
+			attacking = true
+			
+			b.target = position.direction_to(target)
+			b.rotation = position.angle_to_point(target)
+			b.playerPos = get_global_position()
+			
+			b.shoot = true
+			can_fire = false
+			
+			if level == 2:
+				b.damage = 2
+				yield(get_tree().create_timer(0.25), "timeout")
+				can_fire = true
+			else:
+				yield(get_tree().create_timer(0.5), "timeout")
+				can_fire = true
+
+
+
+
 
 func _on_PC_Sprite_animation_finished():
 	attacking = false
