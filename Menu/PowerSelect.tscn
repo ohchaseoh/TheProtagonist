@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menu/BoonButtons.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/BreatheFireIII_Font.tres" type="DynamicFont" id=2]
+
+[node name="PowerSelect" type="Node2D"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 380.0
+margin_top = 117.0
+margin_right = 653.0
+margin_bottom = 162.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_right = 273.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 2 )
+text = "Select your Boon"
+
+[node name="BoonButtons" parent="MarginContainer" instance=ExtResource( 1 )]
