@@ -10,7 +10,7 @@ func _ready():
 	#var mod = $Sprite.get_modulate()
 	#mod.a = 0.25
 	#$Sprite.set_modulate(mod)
-	for i in $CenterContainer.get_children():
+	for i in $Node2D/CenterContainer.get_children():
 		if "Wall" in i.get_name():
 			print(i.get_name())
 			wallArr.append(i)

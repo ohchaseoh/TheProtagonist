@@ -34,6 +34,8 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("shoot"):
 		target = get_global_mouse_position()
+	if event.is_action_pressed("ui_accept"):
+		lose_life()
 
 func _process(delta):
 	#basic movement commands
@@ -142,13 +144,14 @@ func _on_PC_Sprite_animation_finished():
 func _on_Area2D_body_entered(body):
 	if(body.is_in_group("BadGuy")):
 		#emit_signal("player_death")
-		emit_signal("life_lost")
+		pass
 	elif(body.is_in_group("Hostages")):
 		body.rescue()
 	else:
 		pass
 
 func lose_life():
+	emit_signal("life_lost")
 	lives = lives - 1
 	if lives == 2:
 		pass
