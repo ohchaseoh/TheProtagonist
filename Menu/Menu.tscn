@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Art/TP_Title.png" type="Texture" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://Assets/Art/StartButton/TP_Start_H.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Art/QuitButton/TP_Quit_H.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Art/OptionsButton/TP_Options_H.png" type="Texture" id=9]
-
+[ext_resource path="res://Assets/Sounds/SFX_ButtonClick.tres" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Sounds/SFX_ButtonHover.tres" type="AudioStream" id=11]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -60,6 +61,15 @@ margin_bottom = 444.0
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 8 )
 
+[node name="SFX_ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="SFX_ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[connection signal="mouse_entered" from="MenuOptions/Start" to="." method="_on_Start_mouse_entered"]
+[connection signal="pressed" from="MenuOptions/Start" to="." method="_on_Start_pressed"]
+[connection signal="mouse_entered" from="MenuOptions/Options" to="." method="_on_Options_mouse_entered"]
+[connection signal="pressed" from="MenuOptions/Options" to="." method="_on_Options_pressed"]
 [connection signal="mouse_entered" from="MenuOptions/Quit" to="." method="_on_Quit_mouse_entered"]
-[connection signal="mouse_exited" from="MenuOptions/Quit" to="." method="_on_Quit_mouse_exited"]
 [connection signal="pressed" from="MenuOptions/Quit" to="." method="_on_Quit_pressed"]

@@ -1,0 +1,40 @@
+[gd_scene format=2]
+
+[node name="BoonButtons" type="GridContainer"]
+margin_right = 273.0
+margin_bottom = 45.0
+columns = 3
+
+[node name="LaserStart" type="TextureButton" parent="."]
+
+[node name="Label" type="Label" parent="LaserStart"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Label2" type="Label" parent="LaserStart"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="IceStart" type="TextureButton" parent="."]
+margin_left = 4.0
+margin_right = 4.0
+
+[node name="Label" type="Label" parent="IceStart"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Label2" type="Label" parent="IceStart"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="FireStart" type="TextureButton" parent="."]
+margin_left = 8.0
+margin_right = 8.0
+
+[node name="Label" type="Label" parent="FireStart"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Label2" type="Label" parent="FireStart"]
+margin_right = 40.0
+margin_bottom = 14.0

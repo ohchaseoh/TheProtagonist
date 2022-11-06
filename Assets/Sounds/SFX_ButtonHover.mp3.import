@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SFX_ButtonHover.mp3-2a5715909e8a44f439c498585acb01eb.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX_ButtonHover.mp3"
+dest_files=[ "res://.import/SFX_ButtonHover.mp3-2a5715909e8a44f439c498585acb01eb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
