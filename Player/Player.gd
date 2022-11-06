@@ -3,6 +3,7 @@ extends KinematicBody2D
 var speed = 200.0
 var screen_size = Vector2.ZERO
 var bullet = load("res://Bullet.tscn")
+var laser = load("res://laser.tscn")
 
 var level = 1
 export (int) var experience
@@ -13,8 +14,15 @@ var can_fire = true
 var attacking = false
 var dead = false
 
+var alwaysOn = true
+var first_time = true
+var canToggle = false
+var laserOn = false
+
 #don't know why it is like this
 onready var target = position
+
+signal rescue_hostage
 
 func _ready():
 	OS.window_fullscreen = true
@@ -57,6 +65,50 @@ func _process(delta):
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
+	if alwaysOn and first_time:
+			var l = laser.instance()
+			$CollisionShape2D.add_child(l)
+			l.alwaysOn = alwaysOn
+			
+			l.player_position = self.get_global_position()
+			
+			l.is_casting = true
+			first_time = false
+	
+	elif(!alwaysOn):
+		if Input.is_action_just_pressed("laser"):
+		
+			if !laserOn:
+				var l = laser.instance()
+				$CollisionShape2D.add_child(l)
+				
+				l.player_position = self.get_global_position()
+				#l.alwaysOn = alwaysOn
+				#l.cast_to() = target * 100.0
+				#l.rotation = position.angle_to_point(target) + 2.70
+				l.is_casting = true
+				
+				
+				
+	#			if alwaysOn == false && canToggle == false:
+	#				yield(get_tree().create_timer(0.25), "timeout")
+	#				l.queue_free()
+	#				l.is_casting = false
+	#			if canToggle == true:
+	#				yield(get_tree().create_timer(1), "timeout")
+	#				l.queue_free()
+	#				l.is_casting = false
+				
+				laserOn = true
+
+				
+			else:
+				laserOn = false
+				#print("test")
+		
+	
+	
+	
 	#gets the direction to the mouse click
 	#position.direction_to(target)
 	if Input.is_action_pressed("shoot") and can_fire:
@@ -79,8 +131,10 @@ func _on_PC_Sprite_animation_finished():
 
 
 func _on_Area2D_body_entered(body):
-	if(body.name == "Follow_BG"):
-		emit_signal("player_death")
+	if(body.is_in_group("BadGuy")):
+		#emit_signal("player_death")
 		self.queue_free()
+	elif(body.is_in_group("Hostages")):
+		body.rescue()
 	else:
 		pass
