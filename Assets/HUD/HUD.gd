@@ -18,7 +18,7 @@ func _ready():
 	_label.update_text(level, experience, experience_required)
 
 func get_required_experience(level):
-	return round(pow(level, 1.8) + level * 4)
+	return round(level * 50)
 
 func gain_experience(amount):
 	experience_total += amount
@@ -54,8 +54,8 @@ func _on_Player_hostage_killed():
 
 func _on_Follow_BG_follow_bg_die():
 	gain_experience(25)
-	update()
+	self.update()
 
 func _on_Charge_BG_charge_bg_die():
 	gain_experience(40)
-	update()
+	self.update()

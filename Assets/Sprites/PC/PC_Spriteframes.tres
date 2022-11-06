@@ -42,7 +42,7 @@ animations = [ {
 "frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 29 ) ],
 "loop": false,
 "name": "death",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 17 ) ],
 "loop": false,
@@ -52,12 +52,12 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "run",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 30 ) ],
 "loop": false,
