@@ -8,7 +8,7 @@ script/source = "extends RayCast2D
 # var a = 2
 # var b = \"text\"
 onready var player_position = position
-onready var isOn = false
+onready var isOn = true
 var alwaysOn = false
 var off_cooldown = true
 var always_on = false
@@ -34,7 +34,7 @@ func _physics_process(delta: float): # -> void:
 	update()
 	#draw_line(Vector2(100, 100), Vector2(100, 200), Color.purple, 1.0)
 	
-	if Input.is_action_just_pressed(\"laser\"):
+	if Input.is_action_just_pressed(\"shoot\"):
 		if (!alwaysOn):
 			queue_free()
 			
@@ -81,9 +81,9 @@ func disappear() -> void:
 		
 func _draw():
 	if is_colliding():
-		draw_line(Vector2(0,-20), to_local(get_collision_point()), Color.purple,10)
+		draw_line(Vector2(0, 0), to_local(get_collision_point()), Color.purple,10)
 	else:
-		draw_line(Vector2(0,-20), get_local_mouse_position(), Color.purple, 10)
+		draw_line(Vector2(0, 0), get_local_mouse_position(), Color.purple, 10)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
