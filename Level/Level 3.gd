@@ -10,9 +10,9 @@ var isLevel3
 var wallArr = []
 var wallHealth = []
 var hostageCount = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player.level = 2
 	isUp = true
 	isDoubleUp = true
 	$BlockMovingTimer.start()

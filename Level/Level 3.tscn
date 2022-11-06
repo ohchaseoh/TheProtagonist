@@ -114,3 +114,4 @@ position = Vector2( 1789, 1019 )
 [connection signal="hostage_rescued" from="Hostage" to="." method="_on_Hostage_hostage_rescued"]
 [connection signal="hostage_killed" from="Hostage2" to="." method="_on_Hostage_hostage_killed"]
 [connection signal="hostage_rescued" from="Hostage2" to="." method="_on_Hostage_hostage_rescued"]
+[connection signal="life_lost" from="Player" to="Control" method="_on_Player_life_lost"]

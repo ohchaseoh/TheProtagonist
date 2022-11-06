@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 200.0
+var speed = 300.0
 var screen_size = Vector2.ZERO
 var bullet = load("res://Bullet.tscn")
 var laser = load("res://laser.tscn")
