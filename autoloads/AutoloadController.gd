@@ -7,6 +7,7 @@ var va_menu2 = load("res://Assets/Sounds/VA_Menu2.mp3")
 
 func _ready():
 	randomize()
+	$MenuMusic.volume_db = -.6
 
 func play_music():
 	
