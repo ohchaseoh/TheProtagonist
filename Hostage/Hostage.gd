@@ -23,3 +23,5 @@ func rescue():
 	self.queue_free()
 	emit_signal("hostage_rescued")
 
+
+

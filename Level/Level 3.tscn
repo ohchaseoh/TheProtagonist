@@ -1,7 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Level/Level 3.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/LevelSprites/woodfloor.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/LevelSprites/stonewall.jpg" type="Texture" id=4]
+[ext_resource path="res://Hostage/Hostage.tscn" type="PackedScene" id=5]
+[ext_resource path="res://BadGuy/Follow_BG/Follow_BG.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -26,6 +31,11 @@ extents = Vector2( 6.5, 311 )
 [node name="Level 3" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
 [node name="Transform" type="Node2D" parent="."]
 scale = Vector2( 1.89, 1.8 )
 
@@ -33,29 +43,31 @@ scale = Vector2( 1.89, 1.8 )
 margin_right = 1027.0
 margin_bottom = 601.0
 
-[node name="Wall1" type="StaticBody2D" parent="Transform/CenterContainer"]
+[node name="Wall1" type="StaticBody2D" parent="Transform/CenterContainer" groups=["Walls"]]
 position = Vector2( 120, 297 )
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall1"]
 position = Vector2( 145, 0 )
 scale = Vector2( 260, 22 )
 mesh = SubResource( 1 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/Wall1"]
 position = Vector2( 142, 0 )
 shape = SubResource( 9 )
 
-[node name="Wall2" type="StaticBody2D" parent="Transform/CenterContainer"]
+[node name="Wall2" type="StaticBody2D" parent="Transform/CenterContainer" groups=["Walls"]]
 position = Vector2( 552, 470 )
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall2"]
 scale = Vector2( 27.5, 128.5 )
 mesh = SubResource( 1 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/Wall2"]
 shape = SubResource( 10 )
 
-[node name="OuterBorder" type="StaticBody2D" parent="Transform/CenterContainer"]
+[node name="OuterBorder" type="StaticBody2D" parent="Transform/CenterContainer" groups=["Walls"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/OuterBorder"]
 position = Vector2( 508.5, -5.5 )
@@ -73,22 +85,32 @@ shape = SubResource( 7 )
 position = Vector2( 1032.5, 299 )
 shape = SubResource( 8 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 513, 300 )
-scale = Vector2( 1.35156, 1 )
-
 [node name="BlockMovingTimer" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="PlayerSpawn" type="Position2D" parent="."]
-position = Vector2( 960, 291 )
-
-[node name="HostageSpawn" type="Position2D" parent="."]
-position = Vector2( 109, 478 )
-
-[node name="HostageSpawn2" type="Position2D" parent="."]
-position = Vector2( 116, 112 )
-
 [node name="Control" parent="." instance=ExtResource( 2 )]
 
+[node name="WinConditionTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="Hostage" parent="." groups=["Hostages"] instance=ExtResource( 5 )]
+position = Vector2( 117, 321 )
+
+[node name="Hostage2" parent="." groups=["Hostages"] instance=ExtResource( 5 )]
+position = Vector2( 174, 920 )
+
+[node name="Follow_BG" parent="." groups=["BadGuy"] instance=ExtResource( 6 )]
+position = Vector2( 1870, 36 )
+
+[node name="Follow_BG2" parent="." groups=["BadGuy"] instance=ExtResource( 6 )]
+position = Vector2( 132, 716 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1789, 1019 )
+
 [connection signal="timeout" from="BlockMovingTimer" to="." method="_on_BlockMovingTimer_timeout"]
+[connection signal="timeout" from="WinConditionTimer" to="." method="_on_WinConditionTimer_timeout"]
+[connection signal="hostage_killed" from="Hostage" to="." method="_on_Hostage_hostage_killed"]
+[connection signal="hostage_rescued" from="Hostage" to="." method="_on_Hostage_hostage_rescued"]
+[connection signal="hostage_killed" from="Hostage2" to="." method="_on_Hostage_hostage_killed"]
+[connection signal="hostage_rescued" from="Hostage2" to="." method="_on_Hostage_hostage_rescued"]
