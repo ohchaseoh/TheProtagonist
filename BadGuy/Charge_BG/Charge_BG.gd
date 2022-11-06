@@ -1,9 +1,10 @@
 extends KinematicBody2D
 
-
 var motion = Vector2()
 var health = 15
 onready var anim_sprite = $AnimatedSprite
+
+signal charge_bg_die
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

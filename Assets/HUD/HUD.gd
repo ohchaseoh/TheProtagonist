@@ -49,6 +49,13 @@ func _on_Player_life_lost():
 		$HeartBox/Heart1.modulate.a = 0.0
 	self.update()
 
-
 func _on_Player_hostage_killed():
 	pass
+
+func _on_Follow_BG_follow_bg_die():
+	gain_experience(25)
+	update()
+
+func _on_Charge_BG_charge_bg_die():
+	gain_experience(40)
+	update()
