@@ -2,6 +2,7 @@ extends Node
 
 var menu_music = load("res://Assets/Sounds/Music/MenuMusic.mp3")
 var level_music = load("res://Assets/Sounds/Music/LevelMusic.mp3")
+
 var va_menu1 = load("res://Assets/Sounds/VA_Menu1.mp3")
 var va_menu2 = load("res://Assets/Sounds/VA_Menu2.mp3")
 
@@ -23,6 +24,10 @@ func play_va():
 	
 	if not $IncredibleVA.is_playing():
 		$IncredibleVA.play()
+		
+	var timer = get_tree().create_timer(7)
+	yield(timer, "timeout")
+	$IncredibleVA.stop()
 	
 func stop_va():
 	
