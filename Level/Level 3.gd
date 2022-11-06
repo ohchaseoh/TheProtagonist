@@ -4,31 +4,25 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var isLeft
+var isUp
+var isDoubleUp
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	isLeft = true
+	isUp = true
+	isDoubleUp = true
 	$BlockMovingTimer.start()
 
+	
 func _process(delta):
-	if isLeft:
-		$CenterContainer/Wall1.position.x -= 1
-		$CenterContainer/Wall2.position.x += 1
-		$CenterContainer/Wall3.position.y += 1
-		$CenterContainer/Wall4.position.y -= 1
-		$CenterContainer/Wall5.position.y -= 1
+	if isUp:
+		$CenterContainer/Wall2.position.y -= 0.5
 	else:
-		$CenterContainer/Wall1.position.x += 1
-		$CenterContainer/Wall2.position.x -= 1
-		$CenterContainer/Wall3.position.y -= 1
-		$CenterContainer/Wall4.position.y += 1
-		$CenterContainer/Wall5.position.y += 1
-
-
+		$CenterContainer/Wall2.position.y += 0.5
 
 func _on_BlockMovingTimer_timeout():
-	if(isLeft):
-		isLeft = false
+	if isUp:
+		isUp = false;
 	else:
-		isLeft = true
+		isUp = true
+

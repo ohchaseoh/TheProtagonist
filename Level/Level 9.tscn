@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 15.5, 18 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 518.5, 4.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 5.5, 306 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 525.5, 10.5 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 6.5, 311 )
+
+[node name="Level 9" type="Node2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1027.0
+margin_bottom = 601.0
+
+[node name="TileMap" type="TileMap" parent="CenterContainer"]
+cell_size = Vector2( 15, 15 )
+format = 1
+
+[node name="Wall1" type="StaticBody2D" parent="CenterContainer/TileMap"]
+position = Vector2( 256, 140 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CenterContainer/TileMap/Wall1"]
+scale = Vector2( 15, 15 )
+mesh = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/TileMap/Wall1"]
+position = Vector2( 0, -1 )
+shape = SubResource( 16 )
+
+[node name="OuterWalls" type="StaticBody2D" parent="CenterContainer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/OuterWalls"]
+position = Vector2( 508.5, -5.5 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CenterContainer/OuterWalls"]
+position = Vector2( -4.5, 296 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CenterContainer/OuterWalls"]
+position = Vector2( 514.5, 612.5 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CenterContainer/OuterWalls"]
+position = Vector2( 1032.5, 299 )
+shape = SubResource( 8 )
