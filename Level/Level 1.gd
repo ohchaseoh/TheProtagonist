@@ -5,10 +5,11 @@ var wallArr = []
 var wallHealth = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	OS.window_fullscreen = true
 	isLevel3 = false
-	var mod = $Sprite.get_modulate()
-	mod.a = 0.25
-	$Sprite.set_modulate(mod)
+	#var mod = $Sprite.get_modulate()
+	#mod.a = 0.25
+	#$Sprite.set_modulate(mod)
 	for i in $CenterContainer.get_children():
 		if "Wall" in i.get_name():
 			print(i.get_name())

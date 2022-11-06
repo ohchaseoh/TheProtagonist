@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sounds/VA_Menu.tres" type="AudioStream" id=1]
+[ext_resource path="res://autoloads/MusicController.gd" type="Script" id=2]
+
+[node name="AutoloadController" type="Node"]
+script = ExtResource( 2 )
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -0.3
+
+[node name="IncredibleVA" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

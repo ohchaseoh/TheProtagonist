@@ -1,16 +1,15 @@
 extends KinematicBody2D
 
-
 var motion = Vector2()
 var health = 5
 onready var anim_sprite = $AnimatedSprite
 
+signal experience_gain
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#OS.window_fullscreen = true
 	pass
-
 
 func _physics_process(delta):
 	anim_sprite.play("run_anim")
@@ -23,12 +22,12 @@ func _physics_process(delta):
 	else:
 		print("You Lose!")
 
-
 func _on_Bullet_enemy_hit():
 	#print("Success!")
 	if(health == 1):
 		self.queue_free()
 		print("Enemy dead")
+		
 	else:
 		health = health - 1
 		print("Enemy hit")

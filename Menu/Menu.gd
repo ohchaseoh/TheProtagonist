@@ -12,7 +12,7 @@ func _ready():
 	
 	$TransitionScreen.visible = false
 	
-	MusicController.play_music()
+	AutoloadController.play_music()
 	
 	_click.volume_db = 2.0
 
@@ -21,7 +21,7 @@ func _on_Start_mouse_entered():
 
 func _on_Start_pressed():
 	_click.play()
-	MusicController.play_va()
+	AutoloadController.play_va()
 	
 	$TransitionScreen.visible = true
 	$TransitionScreen.transition()

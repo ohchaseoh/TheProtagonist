@@ -6,13 +6,15 @@ var bullet = load("res://Bullet.tscn")
 var laser = load("res://laser.tscn")
 
 var level = 4
+export (int) var lives = 3
+var dead = false
+
 export (int) var experience
 export (int) var experience_total
 export (int) var experience_required
 
 var can_fire = true
 var attacking = false
-var dead = false
 
 var alwaysOn = false
 var first_time = true
@@ -22,7 +24,7 @@ var laserOn = false
 #don't know why it is like this
 onready var target = position
 
-signal rescue_hostage
+signal life_lost
 
 func _ready():
 	OS.window_fullscreen = true
@@ -95,8 +97,6 @@ func _process(delta):
 				l.is_casting = true
 				l.isOn = true
 				
-				
-				
 	#			if alwaysOn == false && canToggle == false:
 	#				yield(get_tree().create_timer(0.25), "timeout")
 	#				l.queue_free()
@@ -108,14 +108,10 @@ func _process(delta):
 				
 				laserOn = true
 
-				
 			else:
 				laserOn = false
 				#print("test")
-		
-	
-	
-	
+
 	#gets the direction to the mouse click
 	#position.direction_to(target)
 	if Input.is_action_just_pressed("shoot") and can_fire:
@@ -140,20 +136,27 @@ func _process(delta):
 				yield(get_tree().create_timer(0.5), "timeout")
 				can_fire = true
 
-
-
-
-
 func _on_PC_Sprite_animation_finished():
 	attacking = false
-
-
-
+	
 func _on_Area2D_body_entered(body):
 	if(body.is_in_group("BadGuy")):
 		#emit_signal("player_death")
-		self.queue_free()
+		emit_signal("life_lost")
 	elif(body.is_in_group("Hostages")):
 		body.rescue()
 	else:
 		pass
+
+func lose_life():
+	lives = lives - 1
+	if lives == 2:
+		pass
+	elif lives == 1:
+		pass
+	elif lives == 0:
+		dead = true
+		$PC_Sprite.play("death")
+		yield($PC_Sprite.animation, "finished")
+		$PC_Sprite.play("death_f")
+		#self.queue_free()

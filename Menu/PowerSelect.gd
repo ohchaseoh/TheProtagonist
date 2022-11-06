@@ -9,4 +9,4 @@ func _ready():
 	
 	timer = get_tree().create_timer(7)
 	yield(timer, "timeout")
-	MusicController.stop_va()
+	AutoloadController.stop_va()

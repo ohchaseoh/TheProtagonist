@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Textures/stonewall.jpg" type="Texture" id=1]
-[ext_resource path="res://Textures/woodfloor.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/HUD/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Level 2.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=1]
@@ -33,7 +32,6 @@ script = ExtResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 513, 300 )
 scale = Vector2( 1.35156, 1 )
-texture = ExtResource( 2 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 1027.0
@@ -55,7 +53,6 @@ position = Vector2( 700, 466 )
 position = Vector2( 0, -64 )
 scale = Vector2( 20, 197 )
 mesh = SubResource( 1 )
-texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/Wall1"]
 position = Vector2( 0, -66.5 )
@@ -68,7 +65,6 @@ position = Vector2( 700, 466 )
 position = Vector2( 88.5, -239 )
 scale = Vector2( 108.5, 22 )
 mesh = SubResource( 1 )
-texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/Wall3"]
 position = Vector2( 87.25, -239.5 )
@@ -81,7 +77,6 @@ position = Vector2( 350, 466 )
 position = Vector2( 0, -64 )
 scale = Vector2( 20, 197 )
 mesh = SubResource( 1 )
-texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/Wall2"]
 position = Vector2( 0, -66.5 )
@@ -94,7 +89,6 @@ position = Vector2( 350, 466 )
 position = Vector2( -87.5, -235 )
 scale = Vector2( 107.5, 26 )
 mesh = SubResource( 1 )
-texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/Wall4"]
 position = Vector2( -87, -235 )
@@ -118,3 +112,5 @@ shape = SubResource( 7 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CenterContainer/OuterBorder"]
 position = Vector2( 1032.5, 299 )
 shape = SubResource( 8 )
+
+[node name="Control" parent="." instance=ExtResource( 1 )]
