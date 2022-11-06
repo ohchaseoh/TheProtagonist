@@ -10,6 +10,8 @@ var SCREEN_SIZE = Vector2(0,0)
 func _ready():
 	OS.window_fullscreen = true
 	
+	$TransitionScreen.visible = false
+	
 	_click.volume_db = 2.0
 	
 	SCREEN_SIZE.x = get_viewport().get_visible_rect().size.x # Get Width
@@ -20,6 +22,11 @@ func _on_Start_mouse_entered():
 
 func _on_Start_pressed():
 	_click.play()
+	$TransitionScreen.visible = true
+	$TransitionScreen.transition()
+
+func _on_TransitionScreen_transitioned():
+	get_tree().change_scene("res://Menu/PowerSelect.tscn")
 	
 func _on_Options_mouse_entered():
 	_hover.play()
