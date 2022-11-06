@@ -8,6 +8,8 @@ onready var player_position = position
 onready var isOn = false
 var alwaysOn = false
 var is_casting := false setget set_is_casting
+var off_cooldown = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_physics_process(false)
@@ -34,8 +36,17 @@ func _physics_process(delta: float) -> void:
 	cast_to = self.get_local_mouse_position() * 50
 	var cast_point := cast_to
 	force_raycast_update()
+	print("test2")
 	if is_colliding():
+		print("test1")
 		cast_point = to_local(get_collision_point())
+		if(get_collider().is_in_group("Walls")):
+			pass
+		elif(off_cooldown):
+			get_collider().hit(1)
+			off_cooldown = false
+			yield(get_tree().create_timer(0.1), "timeout")
+			off_cooldown = true
 		
 	$Line2D.points[1] = cast_point
 	
@@ -61,7 +72,6 @@ func disappear() -> void:
 	$Tween.start()
 	
 	
-		
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

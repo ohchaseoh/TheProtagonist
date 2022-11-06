@@ -27,9 +27,11 @@ func _physics_process(delta):
 func hit(damage):
 	if(health < damage):
 		health = 0
+		#dead BadGuy sound
 		print("Enemy dead")
 		self.queue_free()
 	else:
 		health = health - damage
+		#hurt BadGuy sound
 		print("Enemy hit")
 		
