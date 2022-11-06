@@ -13,17 +13,17 @@ script = ExtResource( 4 )
 [node name="HUD" parent="." instance=ExtResource( 1 )]
 visible = false
 
+[node name="Follow_BG" parent="HUD" instance=ExtResource( 5 )]
+
+[node name="Charge_BG" parent="HUD" instance=ExtResource( 6 )]
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 visible = false
 
 [node name="Menu" parent="." instance=ExtResource( 3 )]
 
-[node name="Follow_BG" parent="." instance=ExtResource( 5 )]
-
-[node name="Charge_BG" parent="." instance=ExtResource( 6 )]
-
+[connection signal="follow_bg_die" from="HUD/Follow_BG" to="." method="_on_Follow_BG_follow_bg_die"]
+[connection signal="follow_bg_die" from="HUD/Follow_BG" to="HUD" method="_on_Follow_BG_follow_bg_die"]
+[connection signal="charge_bg_die" from="HUD/Charge_BG" to="." method="_on_Charge_BG_charge_bg_die"]
+[connection signal="charge_bg_die" from="HUD/Charge_BG" to="HUD" method="_on_Charge_BG_charge_bg_die"]
 [connection signal="life_lost" from="Player" to="HUD" method="_on_Player_life_lost"]
-[connection signal="follow_bg_die" from="Follow_BG" to="." method="_on_Follow_BG_follow_bg_die"]
-[connection signal="follow_bg_die" from="Follow_BG" to="HUD" method="_on_Follow_BG_follow_bg_die"]
-[connection signal="charge_bg_die" from="Charge_BG" to="." method="_on_Charge_BG_charge_bg_die"]
-[connection signal="charge_bg_die" from="Charge_BG" to="HUD" method="_on_Charge_BG_charge_bg_die"]

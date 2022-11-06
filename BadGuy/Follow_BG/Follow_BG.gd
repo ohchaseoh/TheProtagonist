@@ -10,6 +10,7 @@ signal follow_bg_die
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#OS.window_fullscreen = true
+	emit_signal("follow_bg_die")
 	pass
 
 func _physics_process(delta):
