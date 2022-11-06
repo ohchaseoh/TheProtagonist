@@ -25,8 +25,6 @@ func _ready():
 
 #func _process(delta):
 	
-		
-
 func kill_wall(wallID):
 	# Gets modulate from the wall that was shot (Color(x,y,z,a))
 	var mod = wallArr[wallID].get_modulate()

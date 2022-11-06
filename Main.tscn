@@ -24,4 +24,6 @@ visible = false
 
 [connection signal="life_lost" from="Player" to="HUD" method="_on_Player_life_lost"]
 [connection signal="follow_bg_die" from="Follow_BG" to="." method="_on_Follow_BG_follow_bg_die"]
+[connection signal="follow_bg_die" from="Follow_BG" to="HUD" method="_on_Follow_BG_follow_bg_die"]
 [connection signal="charge_bg_die" from="Charge_BG" to="." method="_on_Charge_BG_charge_bg_die"]
+[connection signal="charge_bg_die" from="Charge_BG" to="HUD" method="_on_Charge_BG_charge_bg_die"]
