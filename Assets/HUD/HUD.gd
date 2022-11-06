@@ -49,3 +49,7 @@ func _on_Player_life_lost():
 	elif hud_lives == 0:
 		$HeartBox/Heart1.modulate.a = 0.0
 	self.update()
+
+
+func _on_Player_hostage_killed():
+	pass
