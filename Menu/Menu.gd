@@ -13,8 +13,7 @@ func _ready():
 	$TransitionScreen.visible = false
 	
 
-	AutoloadController.play_menu_music()
-
+	AutoloadController.play_music()
 	
 	_click.volume_db = 2.0
 

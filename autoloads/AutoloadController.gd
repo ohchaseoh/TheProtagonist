@@ -8,7 +8,7 @@ var va_menu2 = load("res://Assets/Sounds/VA_Menu2.mp3")
 func _ready():
 	randomize()
 
-func play_menu_music():
+func play_music():
 	
 	$MenuMusic.stream = menu_music
 	$MenuMusic.play()
