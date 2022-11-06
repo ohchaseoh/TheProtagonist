@@ -6,6 +6,7 @@ var wallHealth = []
 var hostageCount = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player.level = 3
 	$WinConditionTimer.start()
 	OS.window_fullscreen = true
 	isLevel3 = false
@@ -52,3 +53,13 @@ func _on_Hostage_hostage_rescued():
 func _on_WinConditionTimer_timeout():
 	if hostageCount == 0:
 		get_tree().change_scene("res://Level/Level 7.tscn")
+	if $Player.lives == 0:
+		get_tree().change_scene("res://Level/Level 6.tscn")
+
+
+func _on_Hostage_hostage_killed():
+	get_tree().change_scene("res://Level/Level 6.tscn")
+
+
+func _on_Player_life_lost():
+	pass # Replace with function body.

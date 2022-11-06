@@ -59,3 +59,7 @@ func _on_Follow_BG_follow_bg_die():
 func _on_Charge_BG_charge_bg_die():
 	gain_experience(40)
 	self.update()
+
+
+func _on_WinConditionTimer_timeout():
+	pass # Replace with function body.

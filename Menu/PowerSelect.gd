@@ -10,3 +10,6 @@ func _ready():
 	timer = get_tree().create_timer(7)
 	yield(timer, "timeout")
 	AutoloadController.stop_va()
+
+func _on_LaserStart_pressed():
+	get_tree().change_scene("res://Level/Level 1.tscn")

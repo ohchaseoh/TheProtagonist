@@ -136,6 +136,7 @@ position = Vector2( 1701, 796 )
 [node name="WinConditionTimer" type="Timer" parent="."]
 wait_time = 0.25
 
+[connection signal="follow_bg_die" from="Follow_BG" to="HUD" method="_on_Follow_BG_follow_bg_die"]
 [connection signal="hostage_killed" from="Player" to="." method="_on_Player_hostage_killed"]
 [connection signal="life_lost" from="Player" to="HUD" method="_on_Player_life_lost"]
 [connection signal="hostage_killed" from="Hostage" to="." method="_on_Hostage_hostage_killed"]

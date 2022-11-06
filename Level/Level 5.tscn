@@ -46,7 +46,7 @@ scale = Vector2( 1.89, 1.8 )
 margin_right = 1027.0
 margin_bottom = 601.0
 
-[node name="Wall1" type="StaticBody2D" parent="Transform/CenterContainer"]
+[node name="Wall1" type="StaticBody2D" parent="Transform/CenterContainer" groups=["Walls"]]
 position = Vector2( 1008, 300 )
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall1"]
@@ -59,7 +59,7 @@ texture = ExtResource( 4 )
 position = Vector2( 0, -0.5 )
 shape = SubResource( 2 )
 
-[node name="Wall2" type="StaticBody2D" parent="Transform/CenterContainer"]
+[node name="Wall2" type="StaticBody2D" parent="Transform/CenterContainer" groups=["Walls"]]
 position = Vector2( 16, 300 )
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall2"]
@@ -72,7 +72,7 @@ texture = ExtResource( 4 )
 position = Vector2( 0, 0.5 )
 shape = SubResource( 9 )
 
-[node name="Wall3" type="StaticBody2D" parent="Transform/CenterContainer"]
+[node name="Wall3" type="StaticBody2D" parent="Transform/CenterContainer" groups=["Walls"]]
 position = Vector2( 512, 16 )
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall3"]
@@ -85,7 +85,7 @@ texture = ExtResource( 4 )
 position = Vector2( -1.5, 1.5 )
 shape = SubResource( 10 )
 
-[node name="Wall4" type="StaticBody2D" parent="Transform/CenterContainer"]
+[node name="Wall4" type="StaticBody2D" parent="Transform/CenterContainer" groups=["Walls"]]
 position = Vector2( 512, 584 )
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall4"]
@@ -98,7 +98,7 @@ texture = ExtResource( 4 )
 position = Vector2( -1.5, 1.5 )
 shape = SubResource( 10 )
 
-[node name="OuterBorder" type="StaticBody2D" parent="Transform/CenterContainer"]
+[node name="OuterBorder" type="StaticBody2D" parent="Transform/CenterContainer" groups=["Walls"]]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/OuterBorder"]

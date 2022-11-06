@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-AutoloadController="*res://autoloads/AutoloadController.gd"
+AutoloadController="*res://autoloads/AutoloadController.tscn"
 
 [display]
 

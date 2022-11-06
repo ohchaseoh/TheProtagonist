@@ -110,7 +110,7 @@ texture = ExtResource( 4 )
 position = Vector2( -87, -235 )
 shape = SubResource( 10 )
 
-[node name="OuterBorder" type="StaticBody2D" parent="Transform/CenterContainer" groups=["walls"]]
+[node name="OuterBorder" type="StaticBody2D" parent="Transform/CenterContainer" groups=["Walls"]]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/OuterBorder"]
