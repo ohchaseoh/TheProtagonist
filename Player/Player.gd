@@ -166,3 +166,4 @@ func lose_life():
 		#yield($PC_Sprite.animation, "finished")
 		$PC_Sprite.play("death_f")
 		#self.queue_free()
+

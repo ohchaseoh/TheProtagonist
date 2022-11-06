@@ -9,9 +9,9 @@ func _ready():
 	$WinConditionTimer.start()
 	OS.window_fullscreen = true
 	isLevel3 = false
-	#var mod = $Sprite.get_modulate()
-	#mod.a = 0.25
-	#$Sprite.set_modulate(mod)
+	var mod = $Sprite.get_modulate()
+	mod.a = 0.5
+	$Sprite.set_modulate(mod)
 	for i in $Node2D/CenterContainer.get_children():
 		if "Wall" in i.get_name():
 			#print(i.get_name())
@@ -50,3 +50,9 @@ func _on_Hostage_hostage_rescued():
 func _on_WinConditionTimer_timeout():
 	if hostageCount == 0:
 		get_tree().change_scene("res://Level/Level 2.tscn")
+	if $Player.lives == 0:
+		get_tree().change_scene("res://Level/Level 1.tscn")
+
+
+func _on_Hostage_hostage_killed():
+	get_tree().change_scene("res://Level/Level 1.tscn")
