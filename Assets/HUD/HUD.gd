@@ -16,7 +16,6 @@ func _ready():
 	OS.window_fullscreen = true
 	
 	_label.update_text(level, experience, experience_required)
-	
 
 func get_required_experience(level):
 	return round(pow(level, 1.8) + level * 4)
