@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/VA_Menu2.mp3-1556881a1f599fb968783d4cabfdc031.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/VA_Menu2.mp3"
+dest_files=[ "res://.import/VA_Menu2.mp3-1556881a1f599fb968783d4cabfdc031.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
