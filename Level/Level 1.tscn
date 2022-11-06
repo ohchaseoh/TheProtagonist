@@ -121,3 +121,5 @@ position = Vector2( 912, 80 )
 position = Vector2( 496, 48 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[connection signal="life_lost" from="Player" to="HUD" method="_on_Player_life_lost"]

@@ -15,7 +15,8 @@ var experience_required = get_required_experience(level + 1)
 func _ready():
 	OS.window_fullscreen = true
 	
-	_label.update_text(level, experience, experience_required)\
+	_label.update_text(level, experience, experience_required)
+	
 
 func get_required_experience(level):
 	return round(pow(level, 1.8) + level * 4)
@@ -39,10 +40,10 @@ func level_up():
 
 func _on_Player_life_lost():
 	print("hud recieved")
-	$HeartBox.visible = false
+	#$HeartBox.visible = false
 	hud_lives = hud_lives - 1
 	if hud_lives == 2:
-		$HeartBox/Heart3.hide()
+		$HeartBox/Heart3.modulate.a = 0.0
 	elif hud_lives == 1:
 		$HeartBox/Heart2.modulate.a = 0.0
 	elif hud_lives == 0:

@@ -160,6 +160,6 @@ func lose_life():
 	elif lives == 0:
 		dead = true
 		$PC_Sprite.play("death")
-		yield($PC_Sprite.animation, "finished")
+		#yield($PC_Sprite.animation, "finished")
 		$PC_Sprite.play("death_f")
 		#self.queue_free()
