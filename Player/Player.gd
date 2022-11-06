@@ -25,6 +25,8 @@ var laserOn = false
 onready var target = position
 
 signal life_lost
+signal remove_life
+signal hostage_killed
 
 func _ready():
 	OS.window_fullscreen = true
@@ -143,13 +145,14 @@ func _on_PC_Sprite_animation_finished():
 	
 func _on_Area2D_body_entered(body):
 	if(body.is_in_group("BadGuy")):
-		#emit_signal("player_death")
-		pass
+		lose_life()
 	elif(body.is_in_group("Hostages")):
 		body.rescue()
 	else:
 		pass
-
+func _on_Hostage_hostage_killed():
+	lives = 0
+	emit_signal("hostage_killed")
 func lose_life():
 	emit_signal("life_lost")
 	lives = lives - 1

@@ -8,9 +8,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+signal hostage_rescued
+signal hostage_killed
 func hit(damage):
 	#dead hostage sound
+	emit_signal("hostage_killed")
 	print("Hostage dead")
 	#lose game
 	self.queue_free()
@@ -19,3 +21,5 @@ func rescue():
 	#happy hostage sound
 	print("Hostage rescued")
 	self.queue_free()
+	emit_signal("hostage_rescued")
+
