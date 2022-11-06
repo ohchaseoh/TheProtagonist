@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends RayCast2D
+#laser file
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+onready var player_position = position
+onready var isOn = false
+
+var is_casting := false setget set_is_casting
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	set_physics_process(false)
+	$Line2D.points[1] = Vector2.ZERO
+	
+
+
+#func _unhandled_input(event: InputEvent) -> void:
+#	if event is InputEventMouseButton:
+#		self.is_casting = event.pressed
+#	
+
+
+
+func _physics_process(delta: float) -> void:
+	
+	
+	if Input.is_action_just_pressed(\"laser\"):
+		queue_free()
+			
+	
+	
+	cast_to = self.get_local_mouse_position() * 50
+	var cast_point := cast_to
+	force_raycast_update()
+	if is_colliding():
+		cast_point = to_local(get_collision_point())
+		
+	$Line2D.points[1] = cast_point
+	
+func set_is_casting(cast: bool)-> void:
+	is_casting = cast
+	
+	if is_casting:
+		appear()
+	else:
+		disappear()
+	
+	set_physics_process(is_casting)
+	
+func appear() -> void:
+	$Tween.stop_all()
+	$Tween.interpolate_property($Line2D, \"width\", 0, 10.0, 0.2)
+	$Tween.start()
+	
+	
+func disappear() -> void:
+	$Tween.stop_all()
+	$Tween.interpolate_property($Line2D, \"width\", 10.0, 0, 0.1)
+	$Tween.start()
+	
+	
+		
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="Environment" id=2]
+background_mode = 4
+glow_enabled = true
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="RayCast2D" type="RayCast2D"]
+cast_to = Vector2( 10000, 0 )
+script = SubResource( 3 )
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 113, 13 )
+points = PoolVector2Array( -113, -13, 8, -13 )
+default_color = Color( 1, 0.0585938, 0.13101, 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )

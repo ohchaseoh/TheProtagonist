@@ -1,8 +1,11 @@
+
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Level/Level 1.gd" type="Script" id=1]
 [ext_resource path="res://Textures/woodfloor.jpg" type="Texture" id=2]
 [ext_resource path="res://Textures/stonewall.jpg" type="Texture" id=3]
+
+
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -116,3 +119,9 @@ shape = SubResource( 7 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CenterContainer/OuterBorder"]
 position = Vector2( 1032.5, 299 )
 shape = SubResource( 8 )
+
+[node name="Follow_BG" parent="." instance=ExtResource( 2 )]
+position = Vector2( 184, 112 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 912, 80 )
