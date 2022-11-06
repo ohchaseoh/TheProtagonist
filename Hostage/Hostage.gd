@@ -21,7 +21,8 @@ func rescue():
 	#happy hostage sound
 	print("Hostage rescued")
 	$HostageSound.play()
-	self.queue_free()
+	$AnimatedSprite.visible = false
+	$CollisionShape2D.visible = false
 	emit_signal("hostage_rescued")
 
 

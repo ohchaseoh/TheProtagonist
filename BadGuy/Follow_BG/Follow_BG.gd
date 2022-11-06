@@ -30,8 +30,9 @@ func hit(damage):
 		#dead BadGuy sound
 		emit_signal("follow_bg_die")
 		$MonsterSound.play()
+		$CollisionShape2D.visible = false
+		$AnimatedSprite.visible = false
 		print("Enemy dead")
-		self.queue_free()
 	else:
 		health = health - damage
 		#hurt BadGuy sound
