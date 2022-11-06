@@ -2,7 +2,10 @@ extends KinematicBody2D
 
 var motion = Vector2()
 var health = 5
+
 onready var anim_sprite = $AnimatedSprite
+
+signal follow_bg_die
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +27,7 @@ func hit(damage):
 	if(health < damage):
 		health = 0
 		#dead BadGuy sound
+		emit_signal("follow_bg_die")
 		print("Enemy dead")
 		self.queue_free()
 	else:
