@@ -35,91 +35,94 @@ extents = Vector2( 6.5, 311 )
 [node name="Level 4" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 513, 300 )
-scale = Vector2( 1.35156, 1 )
+[node name="Transform" type="Node2D" parent="."]
+scale = Vector2( 1.89, 1.8 )
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="Transform"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 
-[node name="Wall1" type="StaticBody2D" parent="CenterContainer"]
+[node name="Wall1" type="StaticBody2D" parent="Transform/CenterContainer"]
 position = Vector2( 512, 584 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CenterContainer/Wall1"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall1"]
 position = Vector2( 0.999969, 3 )
 scale = Vector2( 512, 15 )
 mesh = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/Wall1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/Wall1"]
 position = Vector2( -1.5, 1.5 )
 shape = SubResource( 10 )
 
-[node name="Wall2" type="StaticBody2D" parent="CenterContainer"]
+[node name="Wall2" type="StaticBody2D" parent="Transform/CenterContainer"]
 position = Vector2( 512, 460 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CenterContainer/Wall2"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall2"]
 position = Vector2( -90.5, 3 )
 scale = Vector2( 420.5, 15 )
 mesh = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/Wall2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/Wall2"]
 position = Vector2( -91, 0 )
 shape = SubResource( 13 )
 
-[node name="Wall4" type="StaticBody2D" parent="CenterContainer"]
+[node name="Wall4" type="StaticBody2D" parent="Transform/CenterContainer"]
 position = Vector2( 512, 360 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CenterContainer/Wall4"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall4"]
 position = Vector2( -90.5, 3 )
 scale = Vector2( 420.5, 15 )
 mesh = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/Wall4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/Wall4"]
 position = Vector2( -91, 0 )
 shape = SubResource( 14 )
 
-[node name="Wall5" type="StaticBody2D" parent="CenterContainer"]
+[node name="Wall5" type="StaticBody2D" parent="Transform/CenterContainer"]
 position = Vector2( 700, 200 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CenterContainer/Wall5"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall5"]
 position = Vector2( -90.5, 3 )
 scale = Vector2( 420.5, 15 )
 mesh = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/Wall5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/Wall5"]
 position = Vector2( -91, 0 )
 shape = SubResource( 15 )
 
-[node name="Wall3" type="StaticBody2D" parent="CenterContainer"]
+[node name="Wall3" type="StaticBody2D" parent="Transform/CenterContainer"]
 position = Vector2( 836, 398 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CenterContainer/Wall3"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Transform/CenterContainer/Wall3"]
 position = Vector2( -11.25, 4 )
 scale = Vector2( 17.25, 50 )
 mesh = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/Wall3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/Wall3"]
 position = Vector2( -11.5, 3 )
 shape = SubResource( 12 )
 
-[node name="OuterBorder" type="StaticBody2D" parent="CenterContainer"]
+[node name="OuterBorder" type="StaticBody2D" parent="Transform/CenterContainer"]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/OuterBorder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transform/CenterContainer/OuterBorder"]
 position = Vector2( 508.5, -5.5 )
 shape = SubResource( 5 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CenterContainer/OuterBorder"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Transform/CenterContainer/OuterBorder"]
 position = Vector2( -4.5, 296 )
 shape = SubResource( 6 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="CenterContainer/OuterBorder"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Transform/CenterContainer/OuterBorder"]
 position = Vector2( 514.5, 612.5 )
 shape = SubResource( 7 )
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="CenterContainer/OuterBorder"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Transform/CenterContainer/OuterBorder"]
 position = Vector2( 1032.5, 299 )
 shape = SubResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 513, 300 )
+scale = Vector2( 1.35156, 1 )
 
 [node name="Control" parent="." instance=ExtResource( 1 )]
