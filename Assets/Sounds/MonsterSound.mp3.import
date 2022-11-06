@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MonsterSound.mp3-a8ec1436ea3afa9efe03857df4b8a3bc.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/MonsterSound.mp3"
+dest_files=[ "res://.import/MonsterSound.mp3-a8ec1436ea3afa9efe03857df4b8a3bc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

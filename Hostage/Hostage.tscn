@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Hostage/goblin_idle_anim_f1.png" type="Texture" id=1]
 [ext_resource path="res://Hostage/goblin_idle_anim_f3.png" type="Texture" id=2]
 [ext_resource path="res://Hostage/goblin_idle_anim_f2.png" type="Texture" id=3]
 [ext_resource path="res://Hostage/goblin_idle_anim_f0.png" type="Texture" id=4]
 [ext_resource path="res://Hostage/Hostage.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Sounds/HostageCheer.mp3" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 5 )
@@ -27,3 +28,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle_anim"
+
+[node name="HostageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

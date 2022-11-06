@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HostageCheer.mp3-d7036ec4ba19e6f0c2c53f29a992697e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/HostageCheer.mp3"
+dest_files=[ "res://.import/HostageCheer.mp3-d7036ec4ba19e6f0c2c53f29a992697e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

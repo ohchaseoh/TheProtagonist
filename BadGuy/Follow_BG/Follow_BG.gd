@@ -29,6 +29,7 @@ func hit(damage):
 		health = 0
 		#dead BadGuy sound
 		emit_signal("follow_bg_die")
+		$MonsterSound.play()
 		print("Enemy dead")
 		self.queue_free()
 	else:

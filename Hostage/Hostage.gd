@@ -20,6 +20,7 @@ func hit(damage):
 func rescue():
 	#happy hostage sound
 	print("Hostage rescued")
+	$HostageSound.play()
 	self.queue_free()
 	emit_signal("hostage_rescued")
 

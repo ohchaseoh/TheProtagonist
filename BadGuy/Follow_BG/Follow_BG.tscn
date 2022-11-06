@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://BadGuy/Follow_BG/Follow_BG.gd" type="Script" id=1]
 [ext_resource path="res://BadGuy/Follow_BG/big_demon_run_anim_f1.png" type="Texture" id=2]
 [ext_resource path="res://BadGuy/Follow_BG/big_demon_run_anim_f2.png" type="Texture" id=3]
 [ext_resource path="res://BadGuy/Follow_BG/big_demon_run_anim_f0.png" type="Texture" id=4]
 [ext_resource path="res://BadGuy/Follow_BG/big_demon_run_anim_f3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sounds/MonsterSound.mp3" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11, 14 )
@@ -36,3 +37,6 @@ animation = "run_anim"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -1, 2 )
 shape = SubResource( 3 )
+
+[node name="MonsterSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
