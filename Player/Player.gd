@@ -5,7 +5,7 @@ var screen_size = Vector2.ZERO
 var bullet = load("res://Bullet.tscn")
 var laser = load("res://laser.tscn")
 
-var level = 4
+var level = 1
 export (int) var lives = 3
 var dead = false
 
@@ -62,10 +62,10 @@ func _process(delta):
 		$PC_Sprite.play("cast")
 	else:
 		$PC_Sprite.play("run")
-	
-	position += direction * speed * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	move_and_collide(direction * speed * delta)
+	#position += direction * speed * delta
+	#position.x = clamp(position.x, 0, screen_size.x)
+	#position.y = clamp(position.y, 0, screen_size.y)
 	
 	#Powers start here
 	if level == 4:
