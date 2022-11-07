@@ -33,6 +33,7 @@ func hit(damage):
 		$CollisionShape2D.visible = false
 		$AnimatedSprite.visible = false
 		print("Enemy dead")
+		queue_free()
 	else:
 		health = health - damage
 		#hurt BadGuy sound
