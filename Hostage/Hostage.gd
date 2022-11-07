@@ -24,6 +24,7 @@ func rescue():
 	$AnimatedSprite.visible = false
 	$CollisionShape2D.visible = false
 	emit_signal("hostage_rescued")
+	self.queue_free()
 
 
 
